@@ -1,0 +1,42 @@
+[project]
+name = "quant-workbench"
+version = "0.1.0"
+description = "US equities quant research workbench: screener, backtest, monitor"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "sse-starlette>=2.1",
+    "polars>=1.9",
+    "duckdb>=1.1",
+    "pandas>=2.2",
+    "numpy>=1.26",
+    "pyarrow>=16",
+    "requests>=2.32",
+    "tenacity>=8.5",
+    "python-dotenv>=1.0",
+    "pydantic>=2.8",
+    "apscheduler>=3.10",
+    "openbb-core>=1.3",
+    "openbb-yfinance>=1.3",
+    "openbb-equity>=1.3",
+    "lxml>=5.2",
+    "httpx>=0.27",
+    "anthropic>=0.122.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]

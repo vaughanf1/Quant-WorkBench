@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 13px;
+  }
+  body {
+    @apply bg-term-bg text-term-text font-mono antialiased;
+    letter-spacing: 0.01em;
+    font-feature-settings: "zero", "ss01", "cv11";
+  }
+  ::selection {
+    background: rgba(255, 140, 0, 0.3);
+  }
+  :focus-visible {
+    outline: 1px solid #ff8c00;
+    outline-offset: 1px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .panel {
+    @apply flex flex-col border border-term-border bg-term-panel rounded-sm;
+  }
+  .panel-header {
+    @apply flex h-7 shrink-0 items-center justify-between gap-2 border-b border-term-borderSoft
+      px-2.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-term-amber;
+  }
+  .sub-header {
+    @apply text-[10px] uppercase tracking-[0.14em] text-term-muted;
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+  .up { @apply text-term-green num; }
+  .down { @apply text-term-red num; }
+  .amber { @apply text-term-amber; }
+
+  .grid-data { @apply w-full text-left num; }
+  .grid-data th {
+    @apply sticky top-0 z-10 bg-term-panel px-2 py-1.5 text-[10px] font-semibold uppercase
+      tracking-[0.12em] text-term-muted border-b border-term-border whitespace-nowrap;
+  }
+  .grid-data td {
+    @apply px-2 py-1 border-b border-term-borderSoft whitespace-nowrap;
+  }
+  .grid-data tbody tr { @apply hover:bg-term-amberSubtle cursor-default; }
+
+  .btn {
+    @apply inline-flex items-center gap-1.5 border border-term-border bg-term-panel2 px-2.5 py-1
+      text-[11px] uppercase tracking-[0.1em] text-term-text rounded-sm
+      hover:border-term-amberDim hover:text-term-amberBright transition-colors
+      disabled:opacity-40 disabled:pointer-events-none;
+  }
+  .btn-amber {
+    @apply btn border-term-amberDim bg-term-amberSubtle text-term-amber hover:bg-term-amber
+      hover:text-black hover:border-term-amber;
+  }
+  .input {
+    @apply bg-term-bg2 border border-term-border rounded-sm px-2 py-1 text-[12px] text-term-heading
+      placeholder:text-term-muted focus:border-term-amberDim focus:outline-none num w-full;
+  }
+  select.input { @apply pr-6; }
+
+  .scroll-thin::-webkit-scrollbar { width: 8px; height: 8px; }
+  .scroll-thin::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 4px; }
+  .scroll-thin::-webkit-scrollbar-track { background: transparent; }
+
+  .caret {
+    @apply inline-block w-[7px] h-[14px] bg-term-amber align-middle ml-1;
+    animation: blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .tag {
+    @apply inline-flex items-center px-1.5 py-0.5 text-[9px] uppercase tracking-[0.1em]
+      border rounded-sm;
+  }
+}

@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    ports:
+      - "${PORT:-3018}:3018"
+    volumes:
+      # data lives on the host so a rebuild never loses parquet/rules/alerts
+      - ./data:/app/data
+    environment:
+      - DATA_DIR=/app/data
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+    restart: unless-stopped
