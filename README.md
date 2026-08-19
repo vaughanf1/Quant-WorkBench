@@ -1,7 +1,7 @@
 # Quant Workbench
 
 A self-hosted quant research workbench for **US equities**: screening,
-backtesting, and post-market monitoring in one amber-on-black terminal panel.
+backtesting, and post-market monitoring in one neon-green-on-black terminal panel.
 
 - **Screener** — 15 built-in strategies (one self-contained Polars file each,
   auto-discovered), a no-code custom signal builder (field + operator +
@@ -85,7 +85,7 @@ load. A broken file records a load error without breaking the rest.
   adapted from **[shy3130/tickflow-stock-panel](https://github.com/shy3130/tickflow-stock-panel)**
   (MIT), an A-share workbench. All Chinese-market mechanics (price limits,
   limit-up ladders) were deliberately not ported.
-- The amber/black terminal aesthetic and the OpenBB data typing come from the
+- The terminal aesthetic (re-skinned from amber to neon green) and the OpenBB data typing come from the
   author's BB-Terminal project.
 - The SEC EDGAR XBRL point-in-time parser (with its restatement test suite)
   is ported verbatim from the author's Personal-Hedge-fund project.

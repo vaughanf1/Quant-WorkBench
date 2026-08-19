@@ -27,7 +27,7 @@ export default function Monitor() {
 
 /* ---- alerts feed --------------------------------------------------------- */
 const SEV_TEXT: Record<string, string> = {
-  info: "text-term-cyan", warn: "text-term-amber", critical: "text-term-red",
+  info: "text-term-cyan", warn: "text-term-accent", critical: "text-term-red",
 };
 
 function AlertsFeed() {
@@ -109,11 +109,11 @@ function RulesPanel({ onAdd }: { onAdd: () => void }) {
               <button
                 onClick={() => toggle.mutate(r)}
                 className={cn("h-3 w-6 shrink-0 rounded-full border transition-colors",
-                  r.enabled ? "border-term-amber bg-term-amberSubtle" : "border-term-border bg-term-bg2")}
+                  r.enabled ? "border-term-accent bg-term-accentSubtle" : "border-term-border bg-term-bg2")}
                 aria-label={r.enabled ? `Disable ${r.name}` : `Enable ${r.name}`}
               >
                 <span className={cn("block h-2 w-2 rounded-full transition-transform",
-                  r.enabled ? "translate-x-3 bg-term-amber" : "translate-x-0.5 bg-term-muted")} />
+                  r.enabled ? "translate-x-3 bg-term-accent" : "translate-x-0.5 bg-term-muted")} />
               </button>
               <div className="min-w-0 flex-1">
                 <div className={cn("truncate font-semibold", r.enabled ? "text-term-heading" : "text-term-muted")}>
@@ -179,7 +179,7 @@ function OutcomesPanel() {
                   <td className="text-term-muted">{o.strategy_id ?? "manual"}</td>
                   <td className="text-term-muted">{o.entry_date}</td>
                   <td className="text-right">{fmtNum(o.entry_price)}</td>
-                  <td><span className="tag border-term-amber text-term-amber">open</span></td>
+                  <td><span className="tag border-term-accent text-term-accent">open</span></td>
                   <td className="text-right text-term-muted">
                     →{fmtPct(o.target_pct, 0)} / {fmtPct(o.stop_pct, 0)}
                   </td>
@@ -390,7 +390,7 @@ function RuleEditor({ onClose }: { onClose: () => void }) {
           {error && <div className="text-[11px] text-term-red">{error}</div>}
           <div className="flex justify-end gap-2">
             <button className="btn" onClick={onClose}>Cancel</button>
-            <button className="btn-amber" disabled={!rule.name || save.isPending} onClick={() => save.mutate()}>
+            <button className="btn-accent" disabled={!rule.name || save.isPending} onClick={() => save.mutate()}>
               Save rule
             </button>
           </div>

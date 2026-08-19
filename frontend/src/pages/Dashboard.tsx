@@ -13,7 +13,7 @@ export default function Dashboard() {
   if (!data?.date)
     return (
       <PageEmpty text="No enriched data yet. Run the data pipeline to pull EOD bars and compute indicators.">
-        <Link to="/data" className="btn-amber mt-3">Open data page</Link>
+        <Link to="/data" className="btn-accent mt-3">Open data page</Link>
       </PageEmpty>
     );
 
@@ -153,7 +153,7 @@ function StrategyPulse({ counts }: { counts: Record<string, number> }) {
     <section className="panel min-h-[200px]">
       <div className="panel-header">
         <span>Strategy pulse</span>
-        <Link to="/screener" className="normal-case tracking-normal text-term-muted hover:text-term-amber">
+        <Link to="/screener" className="normal-case tracking-normal text-term-muted hover:text-term-accent">
           open screener →
         </Link>
       </div>
@@ -163,10 +163,10 @@ function StrategyPulse({ counts }: { counts: Record<string, number> }) {
             className="group flex items-center gap-2 text-[11px]">
             <span className="w-40 truncate text-term-muted group-hover:text-term-text">{id.replaceAll("_", " ")}</span>
             <div className="h-2.5 flex-1 overflow-hidden rounded-sm bg-term-bg2">
-              <div className="h-full bg-term-amberDim group-hover:bg-term-amber transition-colors"
+              <div className="h-full bg-term-accentDim group-hover:bg-term-accent transition-colors"
                 style={{ width: `${(Math.max(n, 0) / max) * 100}%` }} />
             </div>
-            <span className={cn("num w-8 text-right", n > 0 ? "text-term-amber" : "text-term-muted")}>
+            <span className={cn("num w-8 text-right", n > 0 ? "text-term-accent" : "text-term-muted")}>
               {n < 0 ? "ERR" : n}
             </span>
           </Link>
@@ -178,7 +178,7 @@ function StrategyPulse({ counts }: { counts: Record<string, number> }) {
 
 /* ---- alerts ----------------------------------------------------------------- */
 const SEV_TEXT: Record<string, string> = {
-  info: "text-term-cyan", warn: "text-term-amber", critical: "text-term-red",
+  info: "text-term-cyan", warn: "text-term-accent", critical: "text-term-red",
 };
 
 function AlertsPanel({ alerts }: { alerts: Dash["alerts"] }) {
@@ -186,7 +186,7 @@ function AlertsPanel({ alerts }: { alerts: Dash["alerts"] }) {
     <section className="panel min-h-[200px]">
       <div className="panel-header">
         <span>Latest alerts</span>
-        <Link to="/monitor" className="normal-case tracking-normal text-term-muted hover:text-term-amber">
+        <Link to="/monitor" className="normal-case tracking-normal text-term-muted hover:text-term-accent">
           monitor →
         </Link>
       </div>

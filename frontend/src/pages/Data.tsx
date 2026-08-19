@@ -39,7 +39,7 @@ export default function Data() {
           {p?.state === "running" && (
             <div>
               <div className="h-2 w-full overflow-hidden rounded-sm bg-term-bg2">
-                <div className="h-full bg-term-amber transition-all" style={{ width: `${p.pct}%` }} />
+                <div className="h-full bg-term-accent transition-all" style={{ width: `${p.pct}%` }} />
               </div>
               <div className="mt-1 text-[10px] text-term-muted">
                 {p.stage} — {p.message}

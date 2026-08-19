@@ -95,7 +95,7 @@ export default function Backtest() {
                 <Square size={11} /> Cancel
               </button>
             ) : (
-              <button className="btn-amber flex-1 justify-center" disabled={!form.strategy}
+              <button className="btn-accent flex-1 justify-center" disabled={!form.strategy}
                 onClick={() => startBacktest(form)}>
                 <Play size={11} /> Run backtest
               </button>
@@ -156,7 +156,7 @@ function ProgressPanel() {
       </div>
       <div className="p-3">
         <div className="h-2 w-full overflow-hidden rounded-sm bg-term-bg2">
-          <div className={cn("h-full bg-term-amber transition-all", task.reconnecting && "animate-pulse")}
+          <div className={cn("h-full bg-term-accent transition-all", task.reconnecting && "animate-pulse")}
             style={{ width: `${pct}%` }} />
         </div>
         <div className="mt-1 text-right text-[10px] num text-term-muted">{pct}%</div>
@@ -269,7 +269,7 @@ function TradesPanel({ trades, total, exitReasons }: {
   }, [trades, sortKey, desc]);
 
   const header = (key: keyof Trade, label: string, right = true) => (
-    <th className={cn(right && "text-right", "cursor-pointer select-none hover:text-term-amber")}
+    <th className={cn(right && "text-right", "cursor-pointer select-none hover:text-term-accent")}
       onClick={() => (sortKey === key ? setDesc(!desc) : (setSortKey(key), setDesc(true)))}>
       {label}{sortKey === key ? (desc ? " ↓" : " ↑") : ""}
     </th>

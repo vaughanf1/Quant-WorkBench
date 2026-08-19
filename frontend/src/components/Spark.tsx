@@ -1,6 +1,6 @@
 /** Inline SVG sparkline: min/max normalised polyline with a soft area fill. */
 export default function Spark({
-  values, width = 120, height = 32, stroke = "#ff8c00", fill = "rgba(255,140,0,0.08)",
+  values, width = 120, height = 32, stroke = "#00ff9c", fill = "rgba(0,255,156,0.08)",
 }: {
   values: number[];
   width?: number;

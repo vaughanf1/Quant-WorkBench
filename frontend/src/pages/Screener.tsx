@@ -82,13 +82,13 @@ function StrategyCard({ meta, count, active, onClick }: {
     <button onClick={onClick}
       className={cn(
         "flex w-56 flex-col gap-1 border p-2 text-left transition-colors rounded-sm",
-        active ? "border-term-amber bg-term-amberSubtle" : "border-term-border bg-term-panel2 hover:border-term-amberDim",
+        active ? "border-term-accent bg-term-accentSubtle" : "border-term-border bg-term-panel2 hover:border-term-accentDim",
       )}>
       <div className="flex items-center justify-between">
-        <span className={cn("text-[11px] font-semibold", active ? "text-term-amber" : "text-term-heading")}>
+        <span className={cn("text-[11px] font-semibold", active ? "text-term-accent" : "text-term-heading")}>
           {meta.name}
         </span>
-        <span className={cn("num text-[13px]", (count ?? 0) > 0 ? "text-term-amber" : "text-term-muted")}>
+        <span className={cn("num text-[13px]", (count ?? 0) > 0 ? "text-term-accent" : "text-term-muted")}>
           {count == null ? "…" : count < 0 ? "ERR" : count}
         </span>
       </div>
@@ -265,7 +265,7 @@ function SignalBuilderDialog({ onClose }: { onClose: () => void }) {
         {error && <div className="text-[11px] text-term-red">{error}</div>}
         <div className="flex justify-end gap-2">
           <button className="btn" onClick={onClose}>Cancel</button>
-          <button className="btn-amber" disabled={!idValid || save.isPending} onClick={() => save.mutate()}>
+          <button className="btn-accent" disabled={!idValid || save.isPending} onClick={() => save.mutate()}>
             Save signal
           </button>
         </div>
@@ -368,7 +368,7 @@ function AiBuilderDialog({ onClose }: { onClose: () => void }) {
           onChange={(e) => setDescription(e.target.value)}
           placeholder="e.g. Stocks within 5% of their 52-week high whose 20-day volume ratio is above 1.5, ranked by 60-day momentum" />
         <div className="flex gap-2">
-          <button className="btn-amber" disabled={!description.trim() || gen.isPending} onClick={() => gen.mutate()}>
+          <button className="btn-accent" disabled={!description.trim() || gen.isPending} onClick={() => gen.mutate()}>
             <Sparkles size={11} /> {gen.isPending ? "Generating…" : "Generate"}
           </button>
           {code && !error && (

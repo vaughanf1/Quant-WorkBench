@@ -12,10 +12,10 @@
     font-feature-settings: "zero", "ss01", "cv11";
   }
   ::selection {
-    background: rgba(255, 140, 0, 0.3);
+    background: rgba(0, 255, 156, 0.3);
   }
   :focus-visible {
-    outline: 1px solid #ff8c00;
+    outline: 1px solid #00ff9c;
     outline-offset: 1px;
   }
   @media (prefers-reduced-motion: reduce) {
@@ -32,7 +32,7 @@
   }
   .panel-header {
     @apply flex h-7 shrink-0 items-center justify-between gap-2 border-b border-term-borderSoft
-      px-2.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-term-amber;
+      px-2.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-term-accent;
   }
   .sub-header {
     @apply text-[10px] uppercase tracking-[0.14em] text-term-muted;
@@ -42,7 +42,7 @@
   }
   .up { @apply text-term-green num; }
   .down { @apply text-term-red num; }
-  .amber { @apply text-term-amber; }
+  .accent { @apply text-term-accent; }
 
   .grid-data { @apply w-full text-left num; }
   .grid-data th {
@@ -52,21 +52,21 @@
   .grid-data td {
     @apply px-2 py-1 border-b border-term-borderSoft whitespace-nowrap;
   }
-  .grid-data tbody tr { @apply hover:bg-term-amberSubtle cursor-default; }
+  .grid-data tbody tr { @apply hover:bg-term-accentSubtle cursor-default; }
 
   .btn {
     @apply inline-flex items-center gap-1.5 border border-term-border bg-term-panel2 px-2.5 py-1
       text-[11px] uppercase tracking-[0.1em] text-term-text rounded-sm
-      hover:border-term-amberDim hover:text-term-amberBright transition-colors
+      hover:border-term-accentDim hover:text-term-accentBright transition-colors
       disabled:opacity-40 disabled:pointer-events-none;
   }
-  .btn-amber {
-    @apply btn border-term-amberDim bg-term-amberSubtle text-term-amber hover:bg-term-amber
-      hover:text-black hover:border-term-amber;
+  .btn-accent {
+    @apply btn border-term-accentDim bg-term-accentSubtle text-term-accent hover:bg-term-accent
+      hover:text-black hover:border-term-accent;
   }
   .input {
     @apply bg-term-bg2 border border-term-border rounded-sm px-2 py-1 text-[12px] text-term-heading
-      placeholder:text-term-muted focus:border-term-amberDim focus:outline-none num w-full;
+      placeholder:text-term-muted focus:border-term-accentDim focus:outline-none num w-full;
   }
   select.input { @apply pr-6; }
 
@@ -75,7 +75,7 @@
   .scroll-thin::-webkit-scrollbar-track { background: transparent; }
 
   .caret {
-    @apply inline-block w-[7px] h-[14px] bg-term-amber align-middle ml-1;
+    @apply inline-block w-[7px] h-[14px] bg-term-accent align-middle ml-1;
     animation: blink 1.1s steps(1) infinite;
   }
   @keyframes blink { 50% { opacity: 0; } }

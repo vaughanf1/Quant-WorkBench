@@ -270,7 +270,7 @@ frontend/src/
   lib/api.ts                typed client for every backend endpoint
   lib/backtestTask.ts       the refresh-surviving backtest progress stream
   lib/alertStream.ts        the live alert toast channel
-  index.css, tailwind.config.js   the amber-on-black terminal theme
+  index.css, tailwind.config.js   the neon-green-on-black terminal theme
 
 data/                       everything the app learns/stores (never in git)
 ```

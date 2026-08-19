@@ -16,7 +16,7 @@ const NAV = [
 
 const SEVERITY_BAR: Record<string, string> = {
   info: "bg-term-cyan",
-  warn: "bg-term-amber",
+  warn: "bg-term-accent",
   critical: "bg-term-red",
 };
 
@@ -32,7 +32,7 @@ export default function Layout() {
     <div className="flex h-screen overflow-hidden">
       <aside className="flex w-44 shrink-0 flex-col border-r border-term-border bg-term-bg2">
         <div className="flex h-12 items-center border-b border-term-border px-3">
-          <span className="text-[13px] font-bold tracking-[0.08em] text-term-amber">QUANT/WB</span>
+          <span className="text-[13px] font-bold tracking-[0.08em] text-term-accent">QUANT/WB</span>
           <span className="caret" aria-hidden />
         </div>
         <nav className="flex-1 py-2">
@@ -45,7 +45,7 @@ export default function Layout() {
                 cn(
                   "relative flex items-center gap-2.5 px-3 py-2 text-[11px] uppercase tracking-[0.12em] transition-colors",
                   isActive
-                    ? "text-term-amber bg-term-amberSubtle before:absolute before:inset-y-1 before:left-0 before:w-[2px] before:bg-term-amber"
+                    ? "text-term-accent bg-term-accentSubtle before:absolute before:inset-y-1 before:left-0 before:w-[2px] before:bg-term-accent"
                     : "text-term-muted hover:text-term-text",
                 )
               }
@@ -67,7 +67,7 @@ export default function Layout() {
           <div className="flex items-center gap-4 text-[10px] uppercase tracking-[0.14em] text-term-muted">
             <span>US Equities · S&P 500</span>
             {ds?.pipeline.state === "running" && (
-              <span className="amber">
+              <span className="accent">
                 pipeline {ds.pipeline.pct}% — {ds.pipeline.stage}
               </span>
             )}
@@ -100,7 +100,7 @@ export default function Layout() {
             <div className={cn("w-1 shrink-0", SEVERITY_BAR[alert.severity] ?? "bg-term-cyan")} />
             <div className="flex-1 px-2.5 py-2">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] uppercase tracking-[0.14em] text-term-amber">{alert.rule_name}</span>
+                <span className="text-[10px] uppercase tracking-[0.14em] text-term-accent">{alert.rule_name}</span>
                 <button
                   onClick={() => dismissToast(id)}
                   className="text-term-muted hover:text-term-text"
@@ -117,7 +117,7 @@ export default function Layout() {
 
       {/* subtle activity hint while pipeline runs */}
       {ds?.pipeline.state === "running" && (
-        <div className="fixed bottom-4 left-48 z-40 flex items-center gap-2 border border-term-border bg-term-panel px-3 py-1.5 text-[10px] uppercase tracking-[0.14em] text-term-amber">
+        <div className="fixed bottom-4 left-48 z-40 flex items-center gap-2 border border-term-border bg-term-panel px-3 py-1.5 text-[10px] uppercase tracking-[0.14em] text-term-accent">
           <Activity size={12} className="animate-pulse" /> {ds.pipeline.message}
         </div>
       )}
